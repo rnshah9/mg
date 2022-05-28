@@ -1,0 +1,5 @@
+project: rnshah9/mg
+target: mg
+
+cmds:
+  - cmd: /usr/bin/mg -b @@
