@@ -18,6 +18,4 @@ RUN git clean -fdx; ./autogen.sh && \
 
 FROM alpine:latest
 
-COPY --from=0 /usr/bin/mg /usr/bin/mg
-COPY --from=0 /usr/share/doc/mg /usr/share/doc/mg
-
+COPY --from=0 /usr/bin/mg /

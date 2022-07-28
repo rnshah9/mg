@@ -2,4 +2,4 @@ project: mg
 target: mg
 
 cmds:
-  - cmd: /usr/bin/mg -b @@
+  - cmd: /mg -b @@
