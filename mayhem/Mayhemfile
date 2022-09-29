@@ -1,0 +1,5 @@
+project: mg
+target: mg
+
+cmds:
+  - cmd: /mg -b @@
