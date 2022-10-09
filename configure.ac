@@ -10,6 +10,7 @@ AC_CONFIG_FILES([Makefile doc/Makefile src/Makefile])
 
 AC_PROG_CC
 AC_PROG_INSTALL
+AC_PROG_RANLIB
 
 AC_CHECK_HEADERS([pty.h utmp.h])
 AC_CANONICAL_HOST
@@ -186,7 +187,7 @@ cat <<EOF
   Sysconfdir.....: $SYSCONFDIR
   Docdir.........: $DOCDIR
   Fallback ~/.mg.: $STARTUP
-  C Compiler.....: $CC $CFLAGS $CPPFLAGS $LDFLAGS $LIBS
+  C Compiler.....: $CC | $CFLAGS | $CPPFLAGS | $LDFLAGS | $LIBS
   Size optimize..: $enable_tiny $tiny_help
   Termcap/curses.: $with_curses $curses_status
 

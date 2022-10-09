@@ -3,3 +3,4 @@ target: mg
 
 cmds:
   - cmd: /mg -b @@
+image: ghcr.io/rnshah9/playground:mg

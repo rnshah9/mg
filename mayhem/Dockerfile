@@ -6,16 +6,21 @@
 #    docker run -ti -v $HOME:/root mg:latest some-filename
 #
 
-FROM alpine:latest
+FROM ubuntu:20.04
 
-RUN apk --no-cache add --virtual .build-dependencies \
-  alpine-sdk autoconf automake git
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential clang
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y automake pkg-config libtool
 
 WORKDIR /root
 COPY . ./
-RUN git clean -fdx; ./autogen.sh && \
-    ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var && make -j8 install-strip
+# RUN CPATH=/root/src
+RUN ./autogen.sh
+RUN ./configure CC=clang CCFLAGS=-fsanitize=fuzzer-no-link,address 
+RUN make -j8
+# WORKDIR /root/src
+# RUN clang harness.c ../lib/strlcpy.c ../lib/strlcat.c ../lib/strtonum.c ../lib/fparseln.c libmg.a -lncurses -lutil -I. -fsanitize=fuzzer,address
 
-FROM alpine:latest
+# FROM alpine:latest
 
-COPY --from=0 /usr/bin/mg /
+# COPY --from=0 /usr/bin/mg /
