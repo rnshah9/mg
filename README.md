@@ -1,10 +1,10 @@
 Micro (GNU) Emacs
 =================
 [![License Badge][]][License] [![GitHub Status][]][GitHub] [![Coverity Status]][Coverity Scan]
-<img align="right" src="doc/mg.png" title="mg in action">
 
 Contents
 --------
+<a href="doc/mg.png"><img align="right" src="doc/mg-thumb.png" title="mg in action"></a>
 
 * [Introduction](#introduction)
 * [Usage](#usage)
